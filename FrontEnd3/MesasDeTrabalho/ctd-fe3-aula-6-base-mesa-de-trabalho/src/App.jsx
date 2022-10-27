@@ -1,6 +1,7 @@
 import './App.css'
 import React from 'react'
-
+import { CityContainer } from './CityContainer';
+import { City } from './City';
 /* Array de cidades que deve ser utilizado na atividade */
 const cities = [
   {
@@ -80,9 +81,9 @@ function App() {
 
   return (
     <div className="App">
-      <React.Fragment>
-        {/* ....Componente que renderiza as cidades específicas */}
-      </React.Fragment>
+      <CityContainer>
+        {cities.filter(city => city.country === "AR").map(city => <City key={city.id} cityObj={city}/>)}
+      </CityContainer>
     </div>
   )
 }
